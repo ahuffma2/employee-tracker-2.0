@@ -1,3 +1,4 @@
+const { connect } = require('http2');
 const mysql = require('mysql');
 const password = require('./password');
 
@@ -15,3 +16,5 @@ connection.connect((err) => {
     console.log(`Connected to ${connection.threadId}`);
     connection.end;
 });
+
+module.exports = connection;
