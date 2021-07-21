@@ -46,35 +46,41 @@ handleSwitch = (choices) => {
 init();
 
  addEmployee = () => { 
-    //const dbEmployees; //= get list of employees to append;
-
-    const roles = [];   // = getROLES FROM DB;   []
-
-    let newEmployee = 
-        inquirer.prompt([
-            {
-                type: 'input',
-                message: 'Enter First Name: ',
-                name:'first_name'
-            },
-            {
-                type:'input',
-                message:"Enter the Last Name: ",
-                name:'last_name'
-            },
-            // {
-            //     type:'list',
-            //     message: 'Select from roles below',
-            //     name: 'role', //FIND A WAY TO GET THE ID 
-            //     choices: roles
-            // },
-            {
-                type: 'input',
-                message: 'If there is a manager enter their ID, else leave blank',
-                name: 'manager_id'
-            }
+    inquirer.prompt([
+        {
+            type: 'input',
+            message: 'Enter First Name: ',
+            name:'first_name'
+        },
+        {
+            type:'input',
+            message:"Enter the Last Name: ",
+            name:'last_name'
+        },
+        {
+            type:'input',
+            message: 'Enter the role ID :',
+            name: "role_id"
+        },
+        {
+            type: 'input',
+            message: 'If there is a manager enter their ID, else leave blank',
+            name: 'manager_id'
+        }
         ]).then(choices => {
-                        // CHANGE STUFF HERE
+            if(choices.manager_id == '')
+                choices.manager_id = null;
+            connection.query('INSERT INTO employee SET ? ',
+            {
+                first_name: choices.first_name,
+                last_name: choices.last_name,
+                role_id: choices.role_id,
+                manager_id: choices.manager_id
+            }, 
+    
+            (err) => {
+                if (err) throw console.log(err);
+            });      // CHANGE STUFF HERE
             prompts();
         })
 };
@@ -98,7 +104,7 @@ updateEmployee = () => {
     //display changes
 
     //update thisEmployee
-    return
+    return;
 }
 
 getRoles = () => { 
@@ -123,10 +129,9 @@ addRole = () => {
             message: 'Enter the Salary for this role'
         },
         {
-            type:'list',
+            type:'input',
             name: 'role_department',
-            message: 'Which Department does this role belong to?',
-            choices: ['4'],  //NEEDS TO DYNAMICALLY PICK DEPARTMENTS
+            message: 'Which Department does this role belong to? Enter a Number',
         }
         ])
         .then((choices) => {
@@ -140,7 +145,6 @@ addRole = () => {
             (err) => {
                 if (err) throw console.log(err);
             });
-
             prompts();
 
         });
