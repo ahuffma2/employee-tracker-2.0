@@ -126,13 +126,24 @@ addRole = () => {
             type:'list',
             name: 'role_department',
             message: 'Which Department does this role belong to?',
-            choices: ['N/A']
+            choices: ['4'],  //NEEDS TO DYNAMICALLY PICK DEPARTMENTS
         }
         ])
         .then((choices) => {
-            //connection.query(`INSERT INTO roles (${choices.role_title}`)
+            connection.query('INSERT INTO role SET ? ',
+            {
+                title: choices.role_title,
+                salary: choices.role_salary,
+                department_id: choices.role_department
+            }, 
+    
+            (err) => {
+                if (err) throw console.log(err);
+            });
+
             prompts();
-        })
+
+        });
 }
 
 addDepartment = () => {
