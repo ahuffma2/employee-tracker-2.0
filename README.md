@@ -7,7 +7,12 @@
   ## Installation 
   use NPM to install inquirer, asciiart-logo, and mysql. View JSON file for more
 
-
+  --------
+  ## Demonstration
+  
+  ![Image](img/example.JPG)
+  ![Video Demonstration](https://youtu.be/LZTXkrwZDU4)
+  
   --------
   ## Questions 
 
