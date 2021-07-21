@@ -34,7 +34,7 @@ handleSwitch = (choices) => {
         case "getRoles":
             getRoles();
             break;
-        case "addRoles":  //NEED TO WORK
+        case "addRole":  //NEED TO WORK
             addRole();
             break;
         case "updateEmployee":     //NEED TO WORK
