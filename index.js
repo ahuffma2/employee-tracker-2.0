@@ -19,25 +19,25 @@ async function prompts() {
 handleSwitch = (choices) => {
     
     switch (choices.main){
-        case "getEmployees":
+        case "getEmployees":  
             getEmployees();
             break;
-        case "addEmployee":
+        case "addEmployee":    //NEED TO WORK
             addEmployee();
             break;
-        case "getDepartments":
+        case "getDepartments":   
             getDepartments();
             break;
-        case "addDepartment":
+        case "addDepartment": //NEED TO WORK
             addDepartment();
             break;
         case "getRoles":
             getRoles();
             break;
-        case "addRoles":
+        case "addRoles":  //NEED TO WORK
             addRole();
             break;
-        case "updateEmployee":
+        case "updateEmployee":     //NEED TO WORK
             updateEmployee();
             break;   
     }
@@ -109,6 +109,34 @@ getRoles = () => {
     prompts();
 }
 
+addRole = () => {
+    inquirer.prompt([
+        {
+            type:'input',
+            name: 'role_title',
+            message:'Enter the new role'
+        },
+        {
+            type:'input',
+            name: 'role_salary',
+            message: 'Enter the Salary for this role'
+        },
+        {
+            type:'list',
+            name: 'role_department',
+            message: 'Which Department does this role belong to?',
+            choices: ['N/A']
+        }
+        ])
+        .then((choices) => {
+            //do stuff 
+            prompts();
+        })
+}
+
+addDepartment = () => {
+
+}
 
 getDepartments =() => {
     connection.query('SELECT * FROM department', (err,res) => {
@@ -119,10 +147,3 @@ getDepartments =() => {
     prompts();
 }
 
-// const addRole = [
-//     'Please Enter a new Role: '
-// ];
-
-// const addDepartment = [
-//     'Enter a new Department Name: '
-// ]
