@@ -22,22 +22,22 @@ handleSwitch = (choices) => {
         case "getEmployees":  
             getEmployees();
             break;
-        case "addEmployee":    //NEED TO WORK
+        case "addEmployee":    
             addEmployee();
             break;
         case "getDepartments":   
             getDepartments();
             break;
-        case "addDepartment": //NEED TO WORK
+        case "addDepartment": 
             addDepartment();
             break;
         case "getRoles":
             getRoles();
             break;
-        case "addRole":  //NEED TO WORK
+        case "addRole":  
             addRole();
             break;
-        case "updateEmployee":     //NEED TO WORK
+        case "updateEmployee":    
             updateEmployee();
             break;   
     }
