@@ -30,8 +30,7 @@ FOREIGN KEY (department_id) REFERENCES department (id)
 
 
 INSERT INTO role(title,salary,department_id)
-VALUES("Senior Dev", 111000,1);
-
+VALUES("Senior Dev", 111000,1),("Deputy Director",70000,2),("Janitor",2000,3);
 
 CREATE TABLE employee(
 id INT NOT NULL AUTO_INCREMENT,
@@ -47,3 +46,6 @@ PRIMARY KEY (id)
 
 INSERT INTO employee(first_name,last_name,role_id,manager_id)
 VALUES ("Topher","Grace",1,null),("William","Shatner",2,1), ("Ron", "Swanson", 2 , null), ("Leslie","Knope",3,2);
+
+
+
