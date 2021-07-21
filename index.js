@@ -144,9 +144,17 @@ addDepartment = () => {
         }
     ])
     .then((choices) => {
-        //do stuff 
+        connection.query('INSERT INTO department SET ? ',
+        {
+            name: choices.department_name,
+        }, 
+
+        (err) => {
+            if (err) throw console.log(err);
+        });
+
         prompts();
-    })
+    });
 }
 
 getDepartments =() => {
