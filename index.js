@@ -74,8 +74,9 @@ init();
                 name: 'manager_id'
             }
         ]).then(choices => {
-            console.log(choices); // CHANGE STUFF HERE
-        }).then (prompts())    
+                        // CHANGE STUFF HERE
+            prompts();
+        })
 };
 
 getEmployees = () => {
@@ -129,7 +130,7 @@ addRole = () => {
         }
         ])
         .then((choices) => {
-            //do stuff 
+            //connection.query(`INSERT INTO roles (${choices.role_title}`)
             prompts();
         })
 }
