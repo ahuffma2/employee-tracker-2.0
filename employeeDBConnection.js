@@ -2,6 +2,7 @@ const { connect } = require('http2');
 const mysql = require('mysql');
 const password = require('./password');
 
+
 const connection = mysql.createConnection({
     host: 'localhost',
     port: 3306,
