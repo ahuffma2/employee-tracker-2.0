@@ -14,7 +14,7 @@ const mainChoices = [
     },  
     {
         name:'View Departments',
-        value: 'viewDepartments'
+        value: 'getDepartments'
     },
     {
         name: 'Add a Department',
@@ -22,7 +22,7 @@ const mainChoices = [
     },
     {
         name:'View Roles',
-        value:'viewRoles'
+        value:'getRoles'
     },
     {   
         name:'Add Role',

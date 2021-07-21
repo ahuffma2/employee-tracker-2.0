@@ -25,19 +25,18 @@ handleSwitch = (choices) => {
         case "addEmployee":
             addEmployee();
             break;
-        case "viewDepartments":
-            viewDepartments();
+        case "getDepartments":
+            getDepartments();
             break;
         case "addDepartment":
             addDepartment();
             break;
-        case "viewRoles":
-            viewRoles();
+        case "getRoles":
+            getRoles();
             break;
         case "addRoles":
             addRole();
             break;
-
         case "updateEmployee":
             updateEmployee();
             break;   
@@ -101,20 +100,24 @@ updateEmployee = () => {
     return
 }
 
-getAllRoles = () => { 
-    //Grab roles from Departments
-    //return 
+getRoles = () => { 
+    connection.query('SELECT * FROM role', (err,res) => {
+        if (err) throw err;
+            let table = consoleTable.getTable(res);
+            console.log(table);
+        })
+    prompts();
 }
 
-getAllDepartments =() => {
-    //grab departments from Database
-    //return
+
+getDepartments =() => {
+    connection.query('SELECT * FROM department', (err,res) => {
+        if (err) throw err;
+            let table = consoleTable.getTable(res);
+            console.log(table);
+        })
+    prompts();
 }
-
-getDepartment = () => {
-
-}
-
 
 // const addRole = [
 //     'Please Enter a new Role: '
