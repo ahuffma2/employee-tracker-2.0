@@ -135,7 +135,17 @@ addRole = () => {
 }
 
 addDepartment = () => {
-
+    inquirer.prompt([
+        {
+            type:'input',
+            name: 'department_name',
+            message:'Whats the Department Name? '
+        }
+    ])
+    .then((choices) => {
+        //do stuff 
+        prompts();
+    })
 }
 
 getDepartments =() => {
